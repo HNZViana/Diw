@@ -1,11 +1,10 @@
-/* Variáveis de cores */
 :root {
-    --color-dark-green: #004d33;
-    --color-darker-green: #002419;
-    --color-light-text: #e0e0e0;
+    --color-bg: #004d33;
+    --color-bg-dark: #002419;
+    --color-text: #e0e0e0;
+    --color-accent: #00bf8f;
 }
 
-/* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -13,138 +12,106 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     line-height: 1.6;
-    color: var(--color-light-text);
-    background-color: var(--color-dark-green);
 }
 
-/* Header */
-.header {
-    background-color: var(--color-darker-green);
+header {
+    background-color: var(--color-bg-dark);
     padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header h1 {
-    float: left;
+header h1 {
+    color: var(--color-accent);
 }
 
-.header nav {
-    float: right;
-}
-
-.header nav ul {
-    list-style: none;
-}
-
-.header nav ul li {
-    display: inline;
+header nav a {
+    color: var(--color-text);
+    text-decoration: none;
     margin-left: 1rem;
 }
 
-.header nav ul li a {
-    color: var(--color-light-text);
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.header nav ul li a:hover {
-    opacity: 0.8;
-}
-
-/* Layout principal */
-.container {
+.content {
     display: flex;
-    margin-top: 60px; /* Espaço para o header fixo */
+    min-height: calc(100vh - 60px);
 }
 
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: var(--color-darker-green);
-    padding: 2rem;
-    height: calc(100vh - 60px);
-    position: fixed;
+aside {
+    width: 200px;
+    background-color: var(--color-bg-dark);
+    padding: 1rem;
 }
 
-.sidebar h2 {
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-light-text);
-    padding-bottom: 0.5rem;
-}
-
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar ul li {
+aside h2 {
+    color: var(--color-accent);
     margin-bottom: 1rem;
 }
 
-.sidebar ul li a {
-    color: var(--color-light-text);
+aside nav {
+    display: flex;
+    flex-direction: column;
+}
+
+aside nav a {
+    color: var(--color-text);
     text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.sidebar ul li a:hover {
-    opacity: 0.8;
-}
-
-/* Conteúdo principal */
-.main-content {
-    flex: 1;
-    margin-left: 250px;
-    padding: 2rem;
-}
-
-.main-content h2 {
-    color: var(--color-light-text);
-    margin-bottom: 1rem;
-}
-
-.card {
-    background-color: var(--color-darker-green);
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.card h3 {
-    color: var(--color-light-text);
     margin-bottom: 0.5rem;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--color-darker-green);
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+main {
+    flex: 1;
+    padding: 2rem;
 }
 
-/* Responsividade */
+h2 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.service {
+    background-color: var(--color-bg-dark);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.service h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: var(--color-bg-dark);
+    border: none;
+    color: var(--color-text);
+}
+
+button {
+    padding: 0.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark);
+    border: none;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
-    .header nav {
-        float: none;
-        margin-top: 1rem;
-    }
-    .container {
+    .content {
         flex-direction: column;
     }
-    .sidebar {
+
+    aside {
         width: 100%;
-        height: auto;
-        position: static;
-    }
-    .main-content {
-        margin-left: 0;
     }
 }
